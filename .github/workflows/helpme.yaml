@@ -97,7 +97,7 @@ jobs:
             matrix:
                 # TODO#7: set correct CodeQL language for this Next.js / React project 
                 #HINT: What language do we use to write React code? What about Next.js API routes?
-                language: [ '???' ]
+                language: [ 'javascript' ]
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
@@ -109,7 +109,7 @@ jobs:
                 languages: ${{ matrix.language }}
                 # TODO#8: enable extended security + quality query suites
                 # queries: ???
-                queries: ???,???
+                queries: security-extended,security-and-quality
                 # RESOURCE — CodeQL query suites:
                 # https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-query-suites
                 #
@@ -124,7 +124,7 @@ jobs:
             # Action: github/codeql-action/analyze@v3
             # Set category so matrix runs don't collide in Security tab.
             - name: Perform CodeQL Analysis
-              uses: ???
+              uses: github/codeql-action/analyze@v3
               with:
                 category: "/language:${{ matrix.language }}"
 
