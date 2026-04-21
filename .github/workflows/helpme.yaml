@@ -44,8 +44,8 @@ jobs:
                 # head: ???
                 # TODO#3: add extra_args flag to report ONLY VERIFIED secrets (reduce noise)
                 # extra_args: ???
-                base: ${{ github.event.repository.default_branch }}
-                head: ???
+                base: ${{ github.event.before }}
+                head: ${{ github.event.after }}
                 extra_args: ???
 
             # Gitleaks scans code + history for regex patterns that look like secrets. It can be more accurate than TruffleHog, but may miss live creds that don't match known patterns.
